@@ -1,6 +1,6 @@
 
 def new_canvas():
-	"""Create a canvas 10x10"""
+	"""Create a canvas of 10x10 represented by lists within a list"""
 	canvas = []
 
 	for i in range(10):
@@ -8,14 +8,14 @@ def new_canvas():
 
 	return canvas
 
-	# canvas = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], #1
-	# 		  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], #2
-	# 		  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], #3
-	# 		  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], #4		  
-	# 		  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], #5
-	# 		  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], #6
-	# 		  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], #7
-	# 		  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], #8
-	# 		  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], #9
-	# 		  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], #10
-	# 		 ]
+def print_canvas(canvas):
+	"""Parses the data in the canvas and prints to the terminal"""
+
+	for sublist in canvas:
+		output = " "
+		for item in sublist:
+			output += str(item)
+
+		print(output)
+
+print_canvas(new_canvas())
