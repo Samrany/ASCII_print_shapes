@@ -1,0 +1,9 @@
+specs:
+
+API draw rectangles and squares
+- print canvas and any shapes to standard output. 10 x 10 output.
+- add a shape (rectangles)
+- clear all shapes
+- create a rectangle using params specified
+- change a rectangle's fill character
+- translate (move up, down, left, right)
