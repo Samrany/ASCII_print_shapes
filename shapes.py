@@ -18,4 +18,20 @@ def print_canvas(canvas):
 
 		print(output)
 
-print_canvas(new_canvas())
+
+def clear_canvas(canvas):
+	"""Clears 2 dimensional array by looping over each item to return a clear canvas"""
+
+	for each_list in canvas:
+		for i in range(len(each_list)):
+			each_list[i] = 0
+			print(each_list[i])
+
+	return canvas
+
+def create_rectangle():
+
+	pass
+
+canvas = new_canvas()
+print_canvas(canvas)
