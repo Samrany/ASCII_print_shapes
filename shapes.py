@@ -67,13 +67,30 @@ def change_fill(shape, new_fill):
 	return shape
 
 
-def translate_position(current_shape, direction, units_of_movement):	
+def translate_position(existing_shape, axis, num):	
 	""""""
-# left, right, up, or down
-# axis which axis ('x' or 'y') should we translate the rectangle on? Translating on the X-axis will cause the rectangle to move left and right. Translating on the Y-axis will cause the rectangle to move up and down.
-# num is how much to move the rectangle. Negative numbers will cause the rectangle to shift left or down. Positive numbers will cause the rectangle to shift right or up.
 
-	pass
+# axis can only be x or y
+# ensure num doesn't put shape off the grid
+	translated_shape = create_canvas()
+
+	if axis == 'x':
+		for x_index in range(len(existing_shape)):
+			existing_shape[x_index + num] = existing_shape[x_index]
+			existing_shape[x_index] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+			# translated_shape[x_index + num] = existing_shape[x_index]
+
+		#for each x where fill is not 0, get fill and apply to index + num at translated
+
+	elif axis == 'y':
+		pass
+
+	else:
+		print("not a valid axis")
+
+	existing_shape = translated_shape
+
+	return existing_shape
 
 # canvas = create_canvas()
 # print_canvas(canvas)
@@ -89,10 +106,18 @@ rect = create_rectangle(1, 1, 3, 3, "*")
 canvas = create_canvas()
 # print_canvas(canvas)
 add_shape_to_canvas(rect, canvas)
-print_canvas(canvas)
-print_canvas(rect)
+# print_canvas(canvas)
+# print_canvas(rect)
 change_fill(rect, "@")
 print_canvas(rect)
+print()
+translate_position(rect, 'x', -1)
+print_canvas(rect)
+
 
 
 # change the fill on it's own. not once it's been added to the canvas??
+# handle cases where coordinates are given off the canvas
+
+
+#can I create a new canvas under the hood when translating
