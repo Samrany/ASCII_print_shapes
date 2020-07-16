@@ -10,7 +10,7 @@ def create_canvas():
 
 
 def print_canvas(canvas):
-	"""Parses the data in the canvas and prints to the terminal"""
+	"""Parses through two dimensional array, combines each list a string, and prints to the terminal"""
 
 	for sublist in canvas:
 		output = " "
@@ -21,7 +21,7 @@ def print_canvas(canvas):
 
 
 def clear_canvas(canvas):
-	"""Clears 2 dimensional array by looping over each item to return a clear canvas"""
+	"""Clears two dimensional array by looping over each item to return a clear canvas"""
 
 	for each_list in canvas:
 		for i in range(len(each_list)):
@@ -46,7 +46,8 @@ def create_rectangle(start_x, start_y, end_x, end_y, fill_char):
 
 
 def add_shape_to_canvas(shape, canvas):
-	""" """
+	"""Given a two-dimensional shape, the function overlays shape onto two-dimensional canvas and returns canvas"""
+
 	#for each coordinate in canvas if rectangle not 0 for same coordinate, change canvas to rectangle character.
 	for x in range(len(shape)):	
 		for y in range(len(shape[x])):
@@ -56,9 +57,14 @@ def add_shape_to_canvas(shape, canvas):
 	return canvas
 
 
-def change_fill(current_shape):
-	""""""
-	pass
+def change_fill(shape, new_fill):
+	"""Changes char of shape in two dimensional array and returns shape"""
+	for x in range(len(shape)):	
+		for y in range(len(shape[x])):
+			if shape[x][y] != 0:
+				shape[x][y] = new_fill
+
+	return shape
 
 
 def translate_position(current_shape, direction, units_of_movement):	
@@ -84,3 +90,9 @@ canvas = create_canvas()
 # print_canvas(canvas)
 add_shape_to_canvas(rect, canvas)
 print_canvas(canvas)
+print_canvas(rect)
+change_fill(rect, "@")
+print_canvas(rect)
+
+
+# change the fill on it's own. not once it's been added to the canvas??
