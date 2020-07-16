@@ -48,7 +48,6 @@ def create_rectangle(start_x, start_y, end_x, end_y, fill_char):
 def add_shape_to_canvas(shape, canvas):
 	"""Given a two-dimensional shape, the function overlays shape onto two-dimensional canvas and returns canvas"""
 
-	#for each coordinate in canvas if rectangle not 0 for same coordinate, change canvas to rectangle character.
 	for x in range(len(shape)):	
 		for y in range(len(shape[x])):
 			if shape[x][y] != 0:
@@ -59,6 +58,7 @@ def add_shape_to_canvas(shape, canvas):
 
 def change_fill(shape, new_fill):
 	"""Changes char of shape in two dimensional array and returns shape"""
+
 	for x in range(len(shape)):	
 		for y in range(len(shape[x])):
 			if shape[x][y] != 0:
@@ -68,56 +68,54 @@ def change_fill(shape, new_fill):
 
 
 def translate_position(existing_shape, axis, num):	
-	""""""
+	""" """
 
 # axis can only be x or y
 # ensure num doesn't put shape off the grid
-	translated_shape = create_canvas()
 
 	if axis == 'x':
 		for x_index in range(len(existing_shape)):
-			existing_shape[x_index + num] = existing_shape[x_index]
-			existing_shape[x_index] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-			# translated_shape[x_index + num] = existing_shape[x_index]
+			try:
+				existing_shape[x_index + num] = existing_shape[x_index]
+				existing_shape[x_index] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-		#for each x where fill is not 0, get fill and apply to index + num at translated
+			except:
+				pass
 
-	elif axis == 'y':
-		pass
+	# elif axis == 'y':
+	# 	for row in existing_shape:
+	# 		for col_index in range(len(row)):
+	# 			row[col_index + num] = row[col_index]
+	# 	pass
 
 	else:
 		print("not a valid axis")
 
-	existing_shape = translated_shape
-
 	return existing_shape
 
-# canvas = create_canvas()
-# print_canvas(canvas)
 
 
-# Rectangles can overlap with one another. The most recently added rectangle should appear on top of other rectangles. For example:
-# Do not render items out of bounds
 
-
+#ensure all functions can't render items out of bounds/error out
 
 rect = create_rectangle(1, 1, 3, 3, "*")
-# print_canvas(rect)
 canvas = create_canvas()
-# print_canvas(canvas)
-add_shape_to_canvas(rect, canvas)
-# print_canvas(canvas)
+
+
 # print_canvas(rect)
 change_fill(rect, "@")
 print_canvas(rect)
 print()
-translate_position(rect, 'x', -1)
-print_canvas(rect)
-
-
+# translate_position(rect, 'x', 2)
+# print_canvas(rect)
+print(" ")
+add_shape_to_canvas(rect, canvas)
+rect2 = create_rectangle(0,3, 1, 5, "*")
+add_shape_to_canvas(rect2, canvas)
+print_canvas(canvas)
 
 # change the fill on it's own. not once it's been added to the canvas??
 # handle cases where coordinates are given off the canvas
 
 
-#can I create a new canvas under the hood when translating
+#can I create a new canvas under the hood when translating.
